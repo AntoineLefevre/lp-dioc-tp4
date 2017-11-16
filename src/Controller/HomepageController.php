@@ -17,8 +17,12 @@ class HomepageController extends Controller
     public function homepageAction()
     {
         // FIXME: Récupérer les utilisateurs non admin
-        $users = [];
 
-        return $this->render('Homepage/homepage.html.twig', ['users' => $users]);
+        $userCo=$this->getUser();
+        $em=$this->getDoctrine()->getManager();
+        $repo=$em->getRepository(User::class);
+        $users = $repo->findBy(array("isAdmin" => false));
+
+        return $this->render('Homepage/homepage.html.twig', ['users' => $users, 'userCo' => $userCo]);
     }
 }
