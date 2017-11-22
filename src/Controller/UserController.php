@@ -9,6 +9,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class UserController extends Controller
 {
     /**
+
      * // FIXME: la route doit être /my_profile
      * @Route(
      *     path="/my_profile",
